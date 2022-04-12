@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/SoftwareFactoryCEET/NodeJS_Express_Mongo/issues"
   },
-  "homepage": "https://github.com/SoftwareFactoryCEET/NodeJS_Express_Mongo#readme"
+  "homepage": "https://github.com/SoftwareFactoryCEET/NodeJS_Express_Mongo#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
