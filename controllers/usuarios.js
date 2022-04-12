@@ -48,6 +48,28 @@ ruta.post('/', (req, res) => {
     }    
 });
 
+//Endpoint de tipo PUT para actualizar los datos del usuario
+ruta.put('/:email', (req, res) => {
+    const {error, value} = schema.validate({nombre: req.body.nombre});
+    if(!error){
+        let resultado = actualizarUsuario(req.params.email, req.body);
+        resultado.then(valor => {
+            res.json({
+                valor
+            })
+        }).catch(err => {
+            res.status(400).json({
+                err
+            })
+        });
+    }else{
+        res.status(400).json({
+            error
+        })
+    }    
+});
+
+
 // Función asíncrona para crear un objeto de tipo usuario
 async function crearUsuario(body){
     let usuario = new Usuario({
@@ -56,6 +78,16 @@ async function crearUsuario(body){
         password    : body.password
     });
     return await usuario.save();
+}
+
+async function actualizarUsuario(email, body){
+    let usuario = await Usuario.findOneAndUpdate({"email": email}, {
+        $set: {
+            nombre: body.nombre,
+            password: body.password
+        }
+    }, {new: true});
+    return usuario;
 }
 
 module.exports = ruta;
