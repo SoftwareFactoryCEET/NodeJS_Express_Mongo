@@ -26,5 +26,8 @@
   "homepage": "https://github.com/SoftwareFactoryCEET/NodeJS_Express_Mongo#readme",
   "devDependencies": {
     "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
   }
 }
