@@ -12,6 +12,8 @@ mongoose.connect('mongodb://localhost:27017/userscoursesdb', {useNewUrlParser: t
     .catch(err => console.log('No se pudo conectar con MongoDB..', err));
 
 
+    
+
 // middleware
 const app = express();
 app.use(express.json());
